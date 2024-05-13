@@ -6,8 +6,8 @@ function createHeader(pageName) {
                 <h2>No Project Until Now</h2>
             </div>
         </section>
-        <section class="links">
-            <div class="container">
+        <section class="links container">
+            <div class="content">
                 <a 
                     href="/project-description"
                     id="project-description">

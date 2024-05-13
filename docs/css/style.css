@@ -9,10 +9,11 @@ a {
 }
 
 body {
-    --light-color: #0096D7;
-    --dark-color: #00253F;
-    --background-color: #EBFAFF;
+    --light-color: #1d2d52;
+    --dark-color: #1d2d52;
+    --background-color: #f0f5ff;
     --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    --card-background-color: #e0edff;
     font-family: 'Poppins', sans-serif;
     background-color: var(--background-color);
     display: flex;
@@ -29,6 +30,14 @@ body {
 }
 
 header {
+    &>div {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: stretch;
+        gap: 1rem;
+    }
+
     & .title {
         background-color: var(--light-color);
         padding: 1rem 0;
@@ -38,16 +47,18 @@ header {
     }
 
     & .links {
-        padding: 1rem 0;
-        border: 2px solid var(--light-color);
-        border-radius: 0 0 25px 25px;
+        width: 100%;
 
-        & .container {
+        & .content {
+            padding: 1rem 0;
+            border: 2px solid var(--light-color);
+            border-radius: 25px;
             display: flex;
             gap: 1rem;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
+            background-color: var(--card-background-color);
         }
 
         & a {
@@ -75,7 +86,7 @@ main.team-members-content {
     }
 
     & .card {
-        background-color: #fff;
+        background-color: var(--card-background-color);
         border: 2px solid var(--light-color);
         border-radius: 25px;
         padding: 1rem 1rem 3rem 1rem;
