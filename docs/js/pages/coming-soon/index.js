@@ -3,7 +3,7 @@ function createComingSoonComponent() {
     comingSoon.classList.add('coming-soon');
     comingSoon.innerHTML = `
         <div class="container">
-            <img src="/assets/coming-soon.svg" alt="Coming Soon">
+            <img src="./assets/coming-soon.svg" alt="Coming Soon">
         </div>
     `;
     return comingSoon;
