@@ -1,6 +1,10 @@
-import createHeaderLayout from '../../layout/header.js';
-import cardsSection from './util/cards.js';
+import cardsContent from './util/cards.js';
 
-const body = document.querySelector('body');
-body.prepend(createHeaderLayout('team-members'));
-body.append(cardsSection);
+function createTeamMembersPage(mainSection) {
+    mainSection.className = '';
+    mainSection.innerHTML = ``;
+    mainSection.classList.add('team-members-content');
+    mainSection.appendChild(cardsContent);
+}
+
+export default createTeamMembersPage;

@@ -1,6 +1,6 @@
 function createHeader(pageName) {
-    const header = document.createElement('header');
-    header.innerHTML = `
+    const headerContainer = document.createElement('div');
+    headerContainer.innerHTML = `
         <section class="title">
             <div class="container">
                 <h2>No Project Until Now</h2>
@@ -9,24 +9,43 @@ function createHeader(pageName) {
         <section class="links">
             <div class="container">
                 <a 
-                    href="/project-description" 
-                    class="${pageName=="project-description"?"active":""}">
+                    href="/project-description"
+                    id="project-description">
                     Project Description
                 </a>
                 <a 
                     href="/project-documentation"
-                    class="${pageName=="project-documentation"?"active":""}">
+                    id="project-documentation">
                     Project Documentation
                 </a>
                 <a 
                     href="/" 
-                    class="${pageName=="team-members"?"active":""}">
+                    id="team-members"
+                    class="active"}">
                     Team Members
                 </a>
             </div>
         </section>
     `;
-    return header;
+    addLinksEventListeners(headerContainer);
+    return headerContainer;
+}
+
+function addLinksEventListeners(container) {
+    container.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const pageName = event.target.id;
+            makeOneActiveLink(container, pageName);
+        });
+    });
+}
+
+function makeOneActiveLink(container, pageName) {
+    container.querySelectorAll('a').forEach((link) => {
+        link.classList.remove('active');
+    });
+    container.querySelector(`#${pageName}`).classList.add('active');
 }
 
 export default createHeader;

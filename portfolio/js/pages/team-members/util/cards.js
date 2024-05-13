@@ -15,7 +15,7 @@ const teamMembersInformation = [
         }
     },
     {
-        name: "Seif Yahia Al-Gohary",
+        name: "Seif Yahia",
         imgSrc: "https://avatars.githubusercontent.com/iSeFz",
         description: `
             Random human trying to code ;)
@@ -27,7 +27,7 @@ const teamMembersInformation = [
         }
     },
     {
-        name: "Adham Khaled Fahmy",
+        name: "Adham Khaled",
         imgSrc: "https://avatars.githubusercontent.com/Adham-K-Fahmy",
         description: `
             ACPC 2023 Finalist
@@ -63,18 +63,11 @@ const teamMembersInformation = [
     },
 ]
 
-// Create the team members section (Cards)
-const cardsSection = document.querySelector('main');
-cardsSection.className = '';
-cardsSection.classList.add('team-members-content');
+const cardsContent = document.createElement('div');
 
-const cardsContainer = document.createElement('div');
-cardsContainer.classList.add('container');
-
-cardsSection.append(cardsContainer);
-
+cardsContent.classList.add('container');
 teamMembersInformation.forEach((teamMember) => {
-    cardsContainer.append(createCard(teamMember));
+    cardsContent.append(createCard(teamMember));
 });
 
-export default cardsSection;
+export default cardsContent;
