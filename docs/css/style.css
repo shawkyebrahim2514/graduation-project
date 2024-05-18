@@ -6,27 +6,46 @@
 
 a {
     text-decoration: none;
+
+    &:hover {
+        filter: brightness(0.9);
+    }
+
+    &:active {
+        filter: brightness(0.8);
+    }
 }
 
 body {
-    --light-color: #1d2d52;
-    --dark-color: #1d2d52;
+    --light-color: #2b4477;
+    --dark-color: #101a2d;
     --background-color: #f0f5ff;
     --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    --card-background-color: #e0edff;
+    --card-background-color: #e0edff63;
+    --transition: all 0.3s ease-in-out;
     font-family: 'Poppins', sans-serif;
-    background-color: var(--background-color);
+    background: url('../assets/background.svg') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin: 0 0 1rem 0;
+    gap: 2rem;
+    margin: 0 0 2rem 0;
+
+    & ::selection {
+        background-color: var(--light-color);
+        color: var(--background-color);
+    }
 }
 
 .container {
     max-width: 1170px;
     margin: auto;
-    overflow: hidden;
     padding: 0 1rem;
+}
+
+.glass-effect {
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(3px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 header {
@@ -68,6 +87,7 @@ header {
             border: 2px solid var(--light-color);
             padding: 0.5rem 1rem;
             border-radius: 25px;
+            background-color: var(--background-color);
 
             &.active {
                 background-color: var(--light-color);
@@ -89,7 +109,7 @@ main.team-members-content {
         background-color: var(--card-background-color);
         border: 2px solid var(--light-color);
         border-radius: 25px;
-        padding: 1rem 1rem 3rem 1rem;
+        padding: 2.5rem 1rem 3rem 1rem;
         display: flex;
         flex-grow: 1;
         flex-direction: column;
@@ -98,19 +118,46 @@ main.team-members-content {
         justify-content: center;
         text-align: center;
         width: 280px;
-        box-shadow: var(--box-shadow);
         color: var(--light-color);
         position: relative;
         overflow: hidden;
+        transition: var(--transition);
 
-        & img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--light-color);
-            box-shadow: var(--box-shadow);
-            margin: auto;
+        & .image {
+            position: relative;
+
+            & img.person {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid var(--light-color);
+                box-shadow: var(--box-shadow);
+                margin: auto;
+            }
+
+            & img.hat {
+                width: 100px;
+                position: absolute;
+                top: -15px;
+                left: 0;
+                right: 65px;
+                margin: auto;
+                rotate: -32deg;
+                filter: drop-shadow(rgba(23, 15, 5, 0.5) 2px 2px 2px);
+                transition: var(--transition);
+            }
+
+            & img.paper {
+                width: 60px;
+                position: absolute;
+                top: 106px;
+                right: -68px;
+                left: 0;
+                margin: auto;
+                filter: drop-shadow(rgba(23, 15, 5, 0.5) 2px 2px 2px);
+                transition: var(--transition);
+            }
         }
 
         & hr {
@@ -135,11 +182,47 @@ main.team-members-content {
             display: flex;
             gap: 1rem;
             justify-content: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
 
             & a {
                 color: var(--background-color);
                 display: inline-block;
                 font-size: 1.2rem;
+            }
+        }
+
+        & .additional-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            font-size: 0.9rem;
+
+            & a {
+                color: var(--light-color);
+                background-color: var(--card-background-color);
+                display: block;
+                text-align: center;
+                border: 2px solid var(--light-color);
+                padding: 0.3rem 0.5rem;
+                border-radius: 25px;
+            }
+        }
+
+        &:hover {
+            background-color: var(--background-color);
+            scale: 1.05;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+
+            & img.hat {
+                top: -30px;
+                right: 105px;
+            }
+
+            & img.paper {
+                top: 116px;
+                right: -105px;
             }
         }
     }
