@@ -26,7 +26,7 @@ const teamMembersInformation = [
         name: "Seif Yahia",
         imgSrc: "https://avatars.githubusercontent.com/iSeFz",
         description: `
-            Random human trying to code ;)
+            Intern @Vodafone
         `,
         contacts: {
             email: "mailto:seif_yahia@outlook.com",
@@ -44,6 +44,7 @@ const teamMembersInformation = [
         name: "Adham Khaled",
         imgSrc: "https://avatars.githubusercontent.com/Adham-K-Fahmy",
         description: `
+            SWE Intern @Siemens
             ACPC 2023 Finalist
         `,
         contacts: {
@@ -98,6 +99,8 @@ const teamMembersInformation = [
         name: "Nour Tarek",
         imgSrc: "https://avatars.githubusercontent.com/NourTarek201",
         description: `
+            Intern @CIB
+            Dot Net Developer
         `,
         contacts: {
             email: "mailto:nourtarrek201@gmail.com",
