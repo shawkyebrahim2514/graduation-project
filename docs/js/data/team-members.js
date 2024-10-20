@@ -3,7 +3,7 @@ const teamMembersInformation = [
         name: "Shawky Ebrahim",
         imgSrc: "https://avatars.githubusercontent.com/shawkyebrahim2514",
         description: `
-            SWE intern @Microsoft\n
+            SWE Intern @Microsoft\n
             ACPC 2022 Finalist
         `,
         contacts: {
@@ -26,6 +26,7 @@ const teamMembersInformation = [
         name: "Seif Yahia",
         imgSrc: "https://avatars.githubusercontent.com/iSeFz",
         description: `
+            Data Engineering Trainee @ ITI
             Intern @Vodafone
         `,
         contacts: {
@@ -44,7 +45,7 @@ const teamMembersInformation = [
         name: "Adham Khaled",
         imgSrc: "https://avatars.githubusercontent.com/Adham-K-Fahmy",
         description: `
-            SWE Intern @Siemens
+            SWE Trainee @Siemens
             ACPC 2023 Finalist
         `,
         contacts: {
@@ -81,6 +82,7 @@ const teamMembersInformation = [
         name: "Nour Wael",
         imgSrc: "https://avatars.githubusercontent.com/nourelshaer",
         description: `
+            SA’24 Intern @Dell Technologies
             Python Developer Intern @Vodafone
         `,
         contacts: {
