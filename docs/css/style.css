@@ -17,22 +17,23 @@ a {
 }
 
 body {
-    --light-color: #2b4477;
-    --dark-color: #101a2d;
-    --background-color: #f0f5ff;
+    --light-color: #f7f3f4;
+    --primary-color: #A51930;
+    --dark-color: #310d13;
+    --background-color: rgba(165, 25, 48, 0.03);
     --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    --card-background-color: #e0edff63;
+    --card-background-color: rgb(249, 242, 243);
     --transition: all 0.3s ease-in-out;
     font-family: 'Poppins', sans-serif;
-    background: url('../assets/background.svg') no-repeat center center/cover;
+    background: rgba(165, 25, 48, 0.04);
     display: flex;
     flex-direction: column;
     gap: 2rem;
     margin: 0 0 2rem 0;
 
     & ::selection {
-        background-color: var(--light-color);
-        color: var(--background-color);
+        background-color: var(--primary-color) !important;
+        color: var(--light-color) !important;
     }
 }
 
@@ -45,7 +46,7 @@ body {
 .glass-effect {
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(3px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    filter: drop-shadow(0 4px 30px rgba(0, 0, 0, 0.1));
 }
 
 header {
@@ -58,10 +59,10 @@ header {
     }
 
     & .title {
-        background-color: var(--light-color);
+        background-color: var(--primary-color);
         padding: 1rem 0;
         text-align: center;
-        color: var(--background-color);
+        color: var(--light-color);
         font-weight: bold;
     }
 
@@ -70,7 +71,7 @@ header {
 
         & .content {
             padding: 1rem 0;
-            border: 2px solid var(--light-color);
+            border: 2px solid var(--primary-color);
             border-radius: 25px;
             display: flex;
             gap: 1rem;
@@ -81,17 +82,17 @@ header {
         }
 
         & a {
-            color: var(--light-color);
+            color: var(--primary-color);
             display: block;
             text-align: center;
-            border: 2px solid var(--light-color);
+            border: 2px solid var(--primary-color);
             padding: 0.5rem 1rem;
             border-radius: 25px;
             background-color: var(--background-color);
 
             &.active {
-                background-color: var(--light-color);
-                color: var(--background-color);
+                background-color: var(--primary-color);
+                color: var(--light-color);
             }
         }
     }
@@ -107,7 +108,7 @@ main.team-members-content {
 
     & .card {
         background-color: var(--card-background-color);
-        border: 2px solid var(--light-color);
+        border: 2px solid var(--primary-color);
         border-radius: 25px;
         padding: 2.5rem 1rem 3rem 1rem;
         display: flex;
@@ -118,7 +119,7 @@ main.team-members-content {
         justify-content: center;
         text-align: center;
         width: 280px;
-        color: var(--light-color);
+        color: var(--primary-color);
         position: relative;
         overflow: hidden;
         transition: var(--transition);
@@ -131,7 +132,7 @@ main.team-members-content {
                 height: 150px;
                 border-radius: 50%;
                 object-fit: cover;
-                border: 2px solid var(--light-color);
+                border: 2px solid var(--primary-color);
                 box-shadow: var(--box-shadow);
                 margin: auto;
             }
@@ -162,7 +163,7 @@ main.team-members-content {
 
         & hr {
             border: none;
-            border-top: 2px solid var(--light-color);
+            border-top: 2px solid var(--primary-color);
         }
 
         & .description {
@@ -178,7 +179,7 @@ main.team-members-content {
             left: 0;
             right: 0;
             padding: 0.5rem;
-            background-color: var(--light-color);
+            background-color: var(--primary-color);
             display: flex;
             gap: 1rem;
             justify-content: center;
@@ -187,7 +188,7 @@ main.team-members-content {
             -webkit-backdrop-filter: blur(3px);
 
             & a {
-                color: var(--background-color);
+                color: var(--light-color);
                 display: inline-block;
                 font-size: 1.2rem;
             }
@@ -200,18 +201,18 @@ main.team-members-content {
             font-size: 0.9rem;
 
             & a {
-                color: var(--light-color);
+                color: var(--primary-color);
                 background-color: var(--card-background-color);
                 display: block;
                 text-align: center;
-                border: 2px solid var(--light-color);
+                border: 2px solid var(--primary-color);
                 padding: 0.3rem 0.5rem;
                 border-radius: 25px;
             }
         }
 
         &:hover {
-            background-color: var(--background-color);
+            background-color: rgb(247 247 247);
             scale: 1.05;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 
@@ -233,4 +234,112 @@ main.team-members-content {
     max-width: 500px;
     margin: auto;
     display: block;
+}
+
+.project-description p {
+    color: var(--dark-color);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: justify;
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--primary-color);
+
+    &::before {
+        content: '“';
+        font-size: 1.6rem;
+        color: var(--primary-color);
+    }
+
+    &::after {
+        content: '”';
+        font-size: 1.6rem;
+        color: var(--primary-color);
+    }
+}
+
+.project-documentation-content {
+    padding: 2rem 0;
+}
+
+.project-documentation {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.project-documentation > div {
+    background-color: var(--card-background-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.project-documentation > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(165, 25, 48, 0.15);
+}
+
+.project-documentation h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.project-documentation h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
+.project-documentation p {
+    color: var(--dark-color);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.project-documentation ul {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.project-documentation ul li {
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+.project-documentation ul li::before {
+    content: '•';
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: -1.5rem;
+    font-size: 1.2rem;
+}
+
+.project-documentation b {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-documentation > div {
+        padding: 1.5rem;
+    }
+
+    .project-documentation h2 {
+        font-size: 1.5rem;
+    }
 }

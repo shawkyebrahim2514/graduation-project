@@ -3,7 +3,8 @@ function createHeader(pageName) {
     headerContainer.innerHTML = `
         <section class="title">
             <div class="container">
-                <h2>No Project Until Now</h2>
+                <h2>ELEVATE</h2>
+                <h4>(Egyptian Local E-commerce Visualization and Augmented Technology Experience)</h4>
             </div>
         </section>
         <section class="links container glass-effect">
