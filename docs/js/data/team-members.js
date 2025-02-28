@@ -46,7 +46,7 @@ const teamMembersInformation = [
         imgSrc: "https://avatars.githubusercontent.com/Adham-K-Fahmy",
         description: `
             SWE Trainee @Siemens
-            ACPC 2023 Finalist
+            ACPC 2023, 2024 Finalist
         `,
         contacts: {
             email: "mailto:adham.kh.fahmy@gmail.com",
