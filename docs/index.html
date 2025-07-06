@@ -8,9 +8,35 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#A51930',
+                        'light': '#f7f3f4',
+                        'dark': '#310d13',
+                        'background': 'rgba(165, 25, 48, 0.03)',
+                        'card-bg': 'rgb(249, 242, 243)',
+                        'primary-light': 'rgba(165, 25, 48, 0.1)',
+                        'primary-dark': '#7d1325'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    backdropBlur: {
+                        'xs': '2px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/tailwind-overrides.css">
     <link rel="manifest" href="./manifest.json" />
 
-    <meta name="theme-color" content="#0096D7" />
+    <meta name="theme-color" content="#A51930" />
     <meta name="description" content="Here you will find our graduation project at FCAI-CU including description, documentation, and the team members">
     <meta name="keywords" content="FCAI,FCAI-CU,computer science, information systems">
 
@@ -21,9 +47,9 @@
     <meta property="og:image" content="./og-image.jpg">
 </head>
 
-<body>
-    <header></header>
-    <main></main>
+<body class="font-poppins bg-gradient-to-br from-primary-light via-light to-primary-light min-h-screen flex flex-col gap-8 selection:bg-primary selection:text-light">
+    <header class="flex-shrink-0"></header>
+    <main class="flex-grow"></main>
     <script src="./js/page-controller.js" type="module"></script>
     <script>
         // Register service worker for PWA support

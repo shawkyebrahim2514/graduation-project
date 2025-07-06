@@ -1,5 +1,5 @@
 import { DOM, StringUtils, ValidationUtils } from '../../../utils/index.js';
-import { CSS_CLASSES, ASSETS, BOOTSTRAP_ICONS } from '../../../constants/index.js';
+import { ASSETS, BOOTSTRAP_ICONS } from '../../../constants/index.js';
 
 /**
  * Create a team member card component
@@ -13,23 +13,34 @@ function createCard(data) {
         return createErrorCard();
     }
 
-    const card = DOM.createElement('div', [CSS_CLASSES.CARD, CSS_CLASSES.GLASS_EFFECT]);
+    const card = DOM.createElement('div', [
+        'bg-card-bg', 'border-2', 'border-primary', 'rounded-3xl', 'p-6', 'pb-12',
+        'flex', 'flex-col', 'gap-3', 'items-stretch', 'justify-center', 'text-center',
+        'w-72', 'text-primary', 'relative', 'overflow-hidden', 'transition-all', 'duration-300',
+        'hover:bg-gray-50', 'hover:scale-105', 'hover:shadow-xl', 'group', 'backdrop-blur-sm'
+    ]);
 
     card.innerHTML = `
-        <div class="${CSS_CLASSES.CARD_IMAGE}">
-            <img src="${ASSETS.ICONS.GRADUATION_HAT}" alt="" class="${CSS_CLASSES.CARD_HAT}" />
-            <img src="${data.imgSrc}" alt="${data.name}" class="${CSS_CLASSES.CARD_PERSON}" />
-            <img src="${ASSETS.ICONS.GRADUATION_PAPER}" alt="" class="${CSS_CLASSES.CARD_PAPER}" />
+        <div class="relative">
+            <img src="${ASSETS.ICONS.GRADUATION_HAT}" 
+                 alt="" 
+                 class="w-24 absolute -top-4 left-0 right-16 mx-auto -rotate-[32deg] drop-shadow-lg transition-all duration-300 group-hover:-top-8 group-hover:right-24" />
+            <img src="${data.imgSrc}" 
+                 alt="${data.name}" 
+                 class="w-36 h-36 rounded-full object-cover border-2 border-primary shadow-lg mx-auto" />
+            <img src="${ASSETS.ICONS.GRADUATION_PAPER}" 
+                 alt="" 
+                 class="w-16 absolute top-24 -right-16 left-0 mx-auto drop-shadow-lg transition-all duration-300 group-hover:top-28 group-hover:-right-24" />
         </div>
-        <h3>${data.name}</h3>
-        <hr />
-        <div class="${CSS_CLASSES.CARD_DESCRIPTION}">
+        <h3 class="text-xl font-bold text-primary">${data.name}</h3>
+        <hr class="border-t-2 border-primary" />
+        <div class="text-dark flex flex-col gap-1">
             ${StringUtils.processMultilineText(data.description)}
         </div>
-        <div class="${CSS_CLASSES.CARD_CONTACTS} ${CSS_CLASSES.GLASS_EFFECT}">
+        <div class="absolute bottom-0 left-0 right-0 p-2 bg-primary flex gap-4 justify-center backdrop-blur-sm shadow-lg">
             ${createContactLinks(data.contacts)}
         </div>
-        <div class="${CSS_CLASSES.CARD_ADDITIONAL_LINKS}">
+        <div class="flex gap-4 justify-center text-sm">
             ${createAdditionalLinks(data.additionalLinks)}
         </div>
     `;
@@ -67,7 +78,14 @@ function createContactLinks(contacts) {
  * @returns {string} HTML string for contact link
  */
 function createContactLink(href, iconClass) {
-    return `<a href="${href}" target="_blank" rel="noopener noreferrer"><i class="bi ${iconClass}"></i></a>`;
+    return `
+        <a href="${href}" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="text-light hover:text-gray-200 transition-colors duration-200 transform hover:scale-110">
+            <i class="bi ${iconClass} text-xl"></i>
+        </a>
+    `;
 }
 
 /**
@@ -97,7 +115,14 @@ function createHyperLink(content, link) {
         return '';
     }
     
-    return `<a href="${link}" target="_blank" rel="noopener noreferrer">${content}</a>`;
+    return `
+        <a href="${link}" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="text-primary bg-card-bg border-2 border-primary px-2 py-1 rounded-3xl transition-all duration-200 hover:bg-primary hover:text-light transform hover:scale-105">
+            ${content}
+        </a>
+    `;
 }
 
 /**
@@ -105,20 +130,28 @@ function createHyperLink(content, link) {
  * @returns {HTMLElement} Error card element
  */
 function createErrorCard() {
-    const card = DOM.createElement('div', [CSS_CLASSES.CARD, CSS_CLASSES.GLASS_EFFECT]);
+    const card = DOM.createElement('div', [
+        'bg-card-bg', 'border-2', 'border-primary', 'rounded-3xl', 'p-6',
+        'flex', 'flex-col', 'gap-3', 'items-center', 'justify-center', 'text-center',
+        'w-72', 'text-primary', 'backdrop-blur-sm'
+    ]);
+    
     card.innerHTML = `
-        <div class="${CSS_CLASSES.CARD_IMAGE}">
-            <img src="${ASSETS.ICONS.GRADUATION_HAT}" alt="" class="${CSS_CLASSES.CARD_HAT}" />
-            <div class="${CSS_CLASSES.CARD_PERSON}" style="width: 150px; height: 150px; background: #ccc; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                <i class="bi bi-exclamation-triangle" style="font-size: 2rem; color: #666;"></i>
+        <div class="relative">
+            <img src="${ASSETS.ICONS.GRADUATION_HAT}" 
+                 alt="" 
+                 class="w-24 absolute -top-4 left-0 right-16 mx-auto -rotate-[32deg] drop-shadow-lg" />
+            <div class="w-36 h-36 bg-gray-300 rounded-full flex items-center justify-center border-2 border-primary">
+                <i class="bi bi-exclamation-triangle text-4xl text-gray-600"></i>
             </div>
         </div>
-        <h3>Error Loading Member</h3>
-        <hr />
-        <div class="${CSS_CLASSES.CARD_DESCRIPTION}">
+        <h3 class="text-xl font-bold text-primary">Error Loading Member</h3>
+        <hr class="border-t-2 border-primary w-full" />
+        <div class="text-dark">
             <p>Unable to load team member information</p>
         </div>
     `;
+    
     return card;
 }
 

@@ -35,12 +35,9 @@ function loadInitialPage() {
         // Update page title
         document.title = 'Team Members | Graduation Project';
         
-        // Ensure the team members link is active
+        // Ensure the team members link is active with proper Tailwind classes
         setTimeout(() => {
-            const teamMembersLink = headerSection.querySelector('#team-members');
-            if (teamMembersLink) {
-                teamMembersLink.classList.add('active');
-            }
+            updateActiveLink('team-members');
         }, 100);
         
     } catch (error) {
@@ -71,10 +68,22 @@ function setupNavigationListeners() {
 // Update active navigation link
 function updateActiveLink(activePageId) {
     const navLinks = headerSection.querySelectorAll('a[id]');
+    
     navLinks.forEach((link) => {
-        link.classList.remove('active');
+        // Define active and inactive class sets
+        const activeClasses = ['bg-primary', 'text-light'];
+        const inactiveClasses = ['bg-primary-light', 'text-primary', 'hover:bg-primary', 'hover:text-light'];
+        
+        // Remove all state classes first
+        [...activeClasses, ...inactiveClasses].forEach(cls => {
+            link.classList.remove(cls);
+        });
+        
+        // Apply appropriate classes based on whether this is the active link
         if (link.id === activePageId) {
-            link.classList.add('active');
+            activeClasses.forEach(cls => link.classList.add(cls));
+        } else {
+            inactiveClasses.forEach(cls => link.classList.add(cls));
         }
     });
 }
@@ -105,18 +114,20 @@ function loadPage(pageName) {
                 console.warn(`Unknown page: ${pageName}, defaulting to team-members`);
                 createTeamMembersPage(mainSection);
                 document.title = 'Team Members | Graduation Project';
-                // Update active link to team-members
+                // Update active link to team-members for unknown pages
                 updateActiveLink('team-members');
                 break;
         }
         
-        // Add fade-in animation
+        // Add fade-in animation with Tailwind classes
         mainSection.style.opacity = '0';
-        mainSection.style.transition = 'opacity 0.3s ease-in-out';
+        mainSection.style.transform = 'translateY(20px)';
+        mainSection.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
         
         // Trigger animation
         setTimeout(() => {
             mainSection.style.opacity = '1';
+            mainSection.style.transform = 'translateY(0)';
         }, 50);
         
     } catch (error) {
@@ -128,12 +139,21 @@ function loadPage(pageName) {
 // Show error message
 function showErrorMessage() {
     mainSection.innerHTML = `
-        <div class="error-container" style="text-align: center; padding: 2rem; color: var(--dark-color);">
-            <h2>Failed to load content</h2>
-            <p>Please refresh the page and try again.</p>
-            <button onclick="location.reload()" style="padding: 0.5rem 1rem; margin-top: 1rem; background: var(--primary-color); color: white; border: none; border-radius: 5px; cursor: pointer;">
-                Refresh Page
-            </button>
+        <div class="flex items-center justify-center min-h-screen py-12">
+            <div class="max-w-md mx-auto px-4 text-center">
+                <div class="bg-card-bg border-2 border-primary rounded-2xl p-8 backdrop-blur-sm shadow-xl">
+                    <div class="mb-6">
+                        <i class="bi bi-exclamation-triangle text-6xl text-primary mb-4"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-primary mb-4">Failed to load content</h2>
+                    <p class="text-dark mb-6 leading-relaxed">Please refresh the page and try again.</p>
+                    <button onclick="location.reload()" 
+                            class="bg-primary text-light px-6 py-3 rounded-full hover:bg-primary-dark transition-all duration-200 font-medium transform hover:scale-105 shadow-lg">
+                        <i class="bi bi-arrow-clockwise mr-2"></i>
+                        Refresh Page
+                    </button>
+                </div>
+            </div>
         </div>
     `;
 }
@@ -144,3 +164,19 @@ if (document.readyState === 'loading') {
 } else {
     initApp();
 }
+
+// Export functions for debugging (accessible via window object)
+window.debugNavigation = {
+    updateActiveLink,
+    loadPage,
+    getCurrentActiveLink: () => {
+        return headerSection.querySelector('a.bg-primary.text-light')?.id || 'none';
+    },
+    getAllLinks: () => {
+        return Array.from(headerSection.querySelectorAll('a[id]')).map(link => ({
+            id: link.id,
+            classes: Array.from(link.classList),
+            isActive: link.classList.contains('bg-primary') && link.classList.contains('text-light')
+        }));
+    }
+};

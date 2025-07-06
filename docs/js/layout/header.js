@@ -1,23 +1,22 @@
 import { APP_CONFIG } from '../config/app.js';
 import { DOM } from '../utils/index.js';
-import { CSS_CLASSES } from '../constants/index.js';
 
 /**
  * Create header layout component
  * @returns {HTMLElement} Header container
  */
 function createHeader() {
-    const headerContainer = DOM.createElement('div');
+    const headerContainer = DOM.createElement('div', ['flex', 'flex-col', 'items-stretch', 'justify-stretch', 'gap-4']);
     
     headerContainer.innerHTML = `
-        <section class="${CSS_CLASSES.HEADER_TITLE}">
-            <div class="${CSS_CLASSES.CONTAINER}">
-                <h2>${APP_CONFIG.site.name}</h2>
-                <h4>(${APP_CONFIG.site.fullName})</h4>
+        <section class="bg-primary text-light py-4 text-center font-bold">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-2xl md:text-3xl font-bold">${APP_CONFIG.site.name}</h2>
+                <h4 class="text-lg md:text-xl font-medium mt-2">(${APP_CONFIG.site.fullName})</h4>
             </div>
         </section>
-        <section class="${CSS_CLASSES.HEADER_LINKS} ${CSS_CLASSES.CONTAINER} ${CSS_CLASSES.GLASS_EFFECT}">
-            <div class="content">
+        <section class="max-w-7xl mx-auto px-4 w-full">
+            <div class="py-4 border-2 border-primary rounded-3xl flex gap-4 justify-center items-center flex-wrap bg-card-bg backdrop-blur-sm shadow-lg">
                 ${createNavigationLinks()}
             </div>
         </section>
@@ -32,16 +31,20 @@ function createHeader() {
  */
 function createNavigationLinks() {
     const links = [
-        { id: 'project-description', path: '/project-description', title: 'Project Description', active: false },
-        { id: 'project-documentation', path: '/project-documentation', title: 'Project Documentation', active: false },
-        { id: 'team-members', path: '/', title: 'Team Members', active: true }
+        { id: 'project-description', path: '/project-description', title: 'Project Description' },
+        { id: 'project-documentation', path: '/project-documentation', title: 'Project Documentation' },
+        { id: 'team-members', path: '/', title: 'Team Members' }
     ];
     
     return links
         .map(link => {
-            const activeClass = link.active ? ` class="${CSS_CLASSES.ACTIVE}"` : '';
+            // All links start as inactive - active state will be managed by page controller
+            const inactiveClasses = 'bg-primary-light text-primary hover:bg-primary hover:text-light';
+            
             return `
-                <a href="${link.path}" id="${link.id}"${activeClass}>
+                <a href="${link.path}" 
+                   id="${link.id}"
+                   class="px-4 py-2 border-2 border-primary rounded-3xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-md ${inactiveClasses}">
                     ${link.title}
                 </a>
             `;

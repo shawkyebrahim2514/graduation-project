@@ -3,7 +3,9 @@ import createCard from '../components/card.js';
 
 const cardsContent = document.createElement('div');
 
-cardsContent.classList.add('container');
+// Add Tailwind classes for responsive grid layout
+cardsContent.className = 'flex flex-wrap gap-6 justify-center items-stretch';
+
 teamMembersInformation.forEach((teamMember) => {
     cardsContent.append(createCard(teamMember));
 });
