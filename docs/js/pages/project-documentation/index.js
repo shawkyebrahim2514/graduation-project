@@ -1,5 +1,6 @@
 import { PROJECT_CONTENT } from '../../data/project-content.js';
 import { DOM, AnimationUtils } from '../../utils/index.js';
+import { createToolsSection } from './components/tools-section.js';
 
 /**
  * Create project documentation page
@@ -31,14 +32,21 @@ function createProjectDocumentationPage(mainSection) {
     documentationDiv.innerHTML = sectionsHtml;
     container.appendChild(titleSection);
     container.appendChild(documentationDiv);
+    
+    // Add the tools section to the documentationDiv so it inherits spacing
+    createToolsSection(documentationDiv);
+    
     mainSection.appendChild(container);
     
     // Add animations with staggered delay
     const sections = container.querySelectorAll('div[class*="bg-card-bg"]');
     sections.forEach((section, index) => {
-        setTimeout(() => {
-            AnimationUtils.slideIn(section, 'bottom', 300);
-        }, index * 100);
+        // Skip tools section as it has its own animation
+        if (!section.querySelector('#tools-grid')) {
+            setTimeout(() => {
+                AnimationUtils.slideIn(section, 'bottom', 300);
+            }, index * 100);
+        }
     });
 }
 
