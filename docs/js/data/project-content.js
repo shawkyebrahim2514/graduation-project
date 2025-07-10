@@ -67,40 +67,6 @@ export const PROJECT_CONTENT = {
                     }
                 ]
             },
-            {
-                id: 'technologies',
-                title: 'Technologies and Tools Used',
-                content: 'The ELEVATE platform is built using a combination of cutting-edge technologies to ensure scalability, high performance, and user engagement. Each technology has been selected based on its efficiency in handling e-commerce functionalities, AI-driven recommendations, and augmented reality experiences.',
-                technologies: [
-                    {
-                        name: 'Front-End Development: React.js',
-                        description: 'React.js is a popular JavaScript library known for its efficiency in creating dynamic and responsive user interfaces. Its component-based architecture enables modular development, facilitating seamless navigation, personalized user interactions, and real-time updates.'
-                    },
-                    {
-                        name: 'Back-End Development: Node.js, FastAPI',
-                        description: 'Node.js is chosen for handling e-commerce operations such as user authentication, product management, and order processing. Its event-driven, non-blocking architecture makes it ideal for handling multiple concurrent requests efficiently.',
-                        additionalDescription: 'FastAPI is integrated to serve AI-related functionalities such as personalized recommendations, image-based search, try-on features, and AR experiences. Its asynchronous capabilities and high performance make it well-suited for AI model interactions.'
-                    },
-                    {
-                        name: 'Database Management: Firebase',
-                        description: 'Firebase is a cloud-based NoSQL database known for real-time synchronization, which enhances platform responsiveness. It supports scalability and flexible data handling, making it ideal for storing product catalogs, user profiles, and order histories.'
-                    },
-                    {
-                        name: 'AI and Machine Learning: TensorFlow & TensorFlow Recommenders',
-                        description: 'TensorFlow provides powerful tools for building AI-powered recommendation engines that analyze user behavior and purchase history.',
-                        additionalDescription: 'TensorFlow Recommenders specializes in personalized product suggestions, improving user experience and increasing engagement.'
-                    },
-                    {
-                        name: 'Visual Search and AR: OpenCV/YOLO (Visual Search) & Snapchat Lenses (AR Try-On)',
-                        description: 'OpenCV/YOLO enables image recognition, allowing users to upload images and find similar products using AI-based object detection.',
-                        additionalDescription: 'Snapchat Lenses facilitate AR-based virtual try-on experiences, allowing customers to preview clothing items before purchasing.'
-                    },
-                    {
-                        name: 'Payment Integration: PayMob & Fawry',
-                        description: 'These payment gateways provide secure and seamless digital transactions using credit cards and mobile wallets. Their wide adoption in Egypt makes them a reliable choice for facilitating payments.'
-                    }
-                ]
-            }
         ]
     }
 };

@@ -225,7 +225,8 @@ export function createMobileAppShowcase(container) {
     const categoriesContainer = DOM.createElement('div', [
         'categories-container',
         'flex-1',
-        'space-y-4'
+        'space-y-4',
+        'w-full'
     ]);
 
     // Build screen display
@@ -259,7 +260,8 @@ function createScreenDisplay(container) {
         'flex',
         'flex-col',
         'items-center',
-        'space-y-6'
+        'space-y-6',
+        'py-6'
     ]);
 
     screenDisplay.innerHTML = `
