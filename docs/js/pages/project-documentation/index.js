@@ -100,6 +100,107 @@ function createSectionHtml(section) {
         html += '</ul>';
     }
     
+    // Add subsections if exists
+    if (section.subsections && section.subsections.length > 0) {
+        section.subsections.forEach(subsection => {
+            html += `
+                <div class="mt-8 mb-6">
+                    <h3 class="text-2xl font-bold text-primary mb-4 relative">
+                        ${subsection.title}
+                        <div class="absolute bottom-0 left-0 w-12 h-0.5 bg-primary rounded-full"></div>
+                    </h3>
+                    <p class="text-dark text-lg leading-relaxed mb-4 text-justify">${subsection.content}</p>
+            `;
+            
+            if (subsection.listItems && subsection.listItems.length > 0) {
+                html += '<ul class="space-y-4 mb-4">';
+                subsection.listItems.forEach(item => {
+                    if (typeof item === 'string') {
+                        html += `
+                            <li class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 w-2 h-2 bg-primary rounded-full mt-2"></span>
+                                <span class="text-dark leading-relaxed">${item}</span>
+                            </li>
+                        `;
+                    } else if (typeof item === 'object' && item.title) {
+                        html += `
+                            <li class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 w-2 h-2 bg-primary rounded-full mt-2"></span>
+                                <div>
+                                    <span class="font-semibold text-primary">${item.title}</span>
+                                    <span class="text-dark leading-relaxed"> ${item.content}</span>
+                                </div>
+                            </li>
+                        `;
+                    }
+                });
+                html += '</ul>';
+            }
+            
+            // Add comparison table if exists
+            if (subsection.comparisonTable) {
+                const table = subsection.comparisonTable;
+                html += `
+                    <div class="overflow-x-auto bg-white bg-opacity-80 rounded-xl border border-primary-light p-4 mb-4">
+                        <table class="w-full min-w-full border-collapse">
+                            <thead>
+                                <tr class="bg-primary bg-opacity-10">
+                `;
+                
+                table.headers.forEach((header, index) => {
+                    const headerClass = index === 0 ? 'text-left' : 'text-center';
+                    const bgClass = index === table.headers.length - 1 ? 'bg-primary text-white' : '';
+                    html += `
+                        <th class="border border-primary-light px-4 py-3 font-bold text-primary ${headerClass} ${bgClass}">
+                            ${header}
+                        </th>
+                    `;
+                });
+                
+                html += `
+                                </tr>
+                            </thead>
+                            <tbody>
+                `;
+                
+                table.rows.forEach(row => {
+                    html += '<tr class="hover:bg-primary hover:bg-opacity-5 transition-colors duration-200">';
+                    html += `
+                        <td class="border border-primary-light px-4 py-3 font-semibold text-primary text-left">
+                            ${row.feature}
+                        </td>
+                    `;
+                    
+                    row.competitors.forEach((value, index) => {
+                        const isElevate = index === row.competitors.length - 1;
+                        const bgClass = isElevate ? 'bg-primary bg-opacity-5' : '';
+                        
+                        let textColor = 'text-red-500'; // default for ✗
+                        if (value === '✓') {
+                            textColor = isElevate ? 'text-green-600' : 'text-blue-600';
+                        }
+                        
+                        html += `
+                            <td class="border border-primary-light px-4 py-3 text-center ${bgClass}">
+                                <span class="text-xl font-bold ${textColor}">${value}</span>
+                            </td>
+                        `;
+                    });
+                    
+                    html += '</tr>';
+                });
+                
+                html += `
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            }
+            
+            html += '</div>';
+        });
+    }
+    
     // Add technologies if exists
     if (section.technologies && section.technologies.length > 0) {
         html += '<div class="space-y-6">';
