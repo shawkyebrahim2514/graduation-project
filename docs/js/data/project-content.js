@@ -314,7 +314,7 @@ export const PROJECT_CONTENT = {
                                 },
                                 {
                                     title: 'Nour Tarek - LinkedIn',
-                                    description: 'Mobile frontend developer specialist and UX/UI designer',
+                                    description: 'Mobile frontend development specialist and UX/UI designer',
                                     url: 'https://www.linkedin.com/in/nour-tarek-zoair/',
                                     icon: '👩‍💻'
                                 }
