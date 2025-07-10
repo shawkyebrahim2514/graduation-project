@@ -98,15 +98,14 @@ const teamMembersInformation = [
         ]
     },
     {
-        name: "Nour Tarek",
+        name: "Nour Tarek Zoair",
         imgSrc: "https://avatars.githubusercontent.com/NourTarek201",
         description: `
-            Intern @CIB
-            Dot Net Developer
+            Backend Developer Trainee @DEPI
         `,
         contacts: {
             email: "mailto:nourtarrek201@gmail.com",
-            linkedin: "https://www.linkedin.com/in/nour-tarek-62b234231/",
+            linkedin: "https://www.linkedin.com/in/nour-tarek-zoair/",
             github: "https://github.com/NourTarek201"
         },
         additionalLinks: [
