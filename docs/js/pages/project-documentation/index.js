@@ -1,6 +1,7 @@
 import { PROJECT_CONTENT } from '../../data/project-content.js';
 import { DOM, AnimationUtils } from '../../utils/index.js';
 import { createToolsSection } from './components/tools-section.js';
+import { createMobileAppShowcase } from './components/mobile-app-showcase.js';
 
 /**
  * Create project documentation page
@@ -32,6 +33,9 @@ function createProjectDocumentationPage(mainSection) {
     documentationDiv.innerHTML = sectionsHtml;
     container.appendChild(titleSection);
     container.appendChild(documentationDiv);
+    
+    // Add the mobile app showcase section
+    createMobileAppShowcase(documentationDiv);
     
     // Add the tools section to the documentationDiv so it inherits spacing
     createToolsSection(documentationDiv);
