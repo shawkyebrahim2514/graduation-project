@@ -7,28 +7,32 @@ export const PROJECT_CONTENT = {
         title: 'Project Description',
         sections: [
             {
-                id: 'introduction',
-                content: 'ELEVATE introduces a new and innovative way of shopping online, especially for clothing, as it gives the user the ability to virtually try on clothes at home without the need to go to offline stores. Gathering Egyptian local brands in one place is the main idea of the project, where users can shop for clothing from multiple local brands all in one place'
+                id: 'vision',
+                content: 'ELEVATE is a groundbreaking e-commerce platform that transforms how Egyptians discover and purchase local fashion. By combining cutting-edge AI technology with a passion for supporting "Made in Egypt" initiatives, we create the first unified marketplace exclusively dedicated to Egyptian local brands.'
             },
             {
-                id: 'market-refresh',
-                content: 'The project aims to refresh the market of online shopping for clothing and to help more Egyptian local brands gain broader visibility and extended reach. Introducing a digital solution to the market of clothing is the most competitive edge in the project, as most clothing brands rely on offline stores, limiting their exposure'
+                id: 'the-problem',
+                content: 'Egyptian fashion brands with incredible talent and unique designs are struggling to reach customers beyond social media posts and physical stores. Meanwhile, consumers who want to support local businesses face the challenge of discovering and accessing these scattered brands across different platforms.'
             },
             {
-                id: 'user-experience',
-                content: 'ELEVATE addresses the need for easy online shopping experience, while current online shopping websites mostly have the usual e-commerce functionalities and do not offer extra features for the customer. The project provides an easy way for the customer to imagine how a piece of clothing would look on him/her without trying it on themselves'
+                id: 'our-solution',
+                content: 'ELEVATE bridges this gap by creating a centralized digital ecosystem where customers can explore hundreds of Egyptian brands in one place. Our AI-powered virtual try-on technology lets users see how clothes look on them before purchasing, while visual search helps them find exactly what they\'re looking for with just a photo.'
             },
             {
-                id: 'centralized-platform',
-                content: 'Introducing a centralized platform for shopping from multiple local brands in Egypt with a focus on user experience and innovation is one of the main attempts to help fill the gap in the market. Integrating artificial intelligent features like personalized recommendations and augmented reality try on are also attempts to digitize the shopping experience and make it more engaging'
+                id: 'what-makes-us-different',
+                content: 'Unlike traditional e-commerce platforms, ELEVATE is built specifically for the Egyptian market with features that matter: Arabic interface, local payment methods, nationwide delivery, and subscription plans that benefit both customers and brands. Our mobile-first approach ensures everyone can access quality local fashion.'
             },
             {
-                id: 'potential',
-                content: 'ELEVATE has the potential to become one of the most significant platforms in the clothing industry, as it offers a different and slightly new experience to the customer through integrating technology with real-life applications like shopping for clothing'
+                id: 'impact',
+                content: 'ELEVATE empowers over 200 local brands to scale digitally while giving millions of Egyptian consumers easy access to authentic, locally-made fashion. We\'re not just selling clothes – we\'re building an ecosystem that strengthens the local economy and celebrates Egyptian creativity.'
+            },
+            {
+                id: 'the-future',
+                content: 'Starting in Egypt, ELEVATE\'s vision extends across the Middle East and North Africa, creating a regional platform that showcases the best of local fashion. We\'re building the foundation for a new era of digital commerce that puts local brands and communities first.'
             }
         ]
     },
-    
+
     documentation: {
         title: 'Project Documentation',
         sections: [
@@ -204,6 +208,121 @@ export const PROJECT_CONTENT = {
                     }
                 ]
             },
+            {
+                id: 'external-links',
+                title: 'External Links',
+                content: 'Access our comprehensive resources, source code repositories, live demonstrations, and connect with our team through the following links:',
+                externalLinks: {
+                    categories: [
+                        {
+                            id: 'documentation',
+                            title: 'Documentation & Reports',
+                            icon: '📚',
+                            links: [
+                                {
+                                    title: 'Full Project Documentation PDF',
+                                    description: 'Complete technical documentation and project report',
+                                    url: 'https://github.com/shawkyebrahim2514/graduation-project/blob/main/docs/assets/ELEVATE.pdf',
+                                    icon: '📄'
+                                },
+                                {
+                                    title: 'API Documentation (Swagger)',
+                                    description: 'Interactive API documentation and testing interface',
+                                    url: 'https://elevate-gp.vercel.app/api/v1/docs/',
+                                    icon: '🔧'
+                                }
+                            ]
+                        },
+                        {
+                            id: 'repositories',
+                            title: 'Source Code Repositories',
+                            icon: '💻',
+                            links: [
+                                {
+                                    title: 'Mobile App Frontend',
+                                    description: 'Flutter-based mobile application source code',
+                                    url: 'https://github.com/iSeFz/ELEVATE',
+                                    icon: '📱'
+                                },
+                                {
+                                    title: 'Website Frontend (Brand Owners)',
+                                    description: 'React-based brand owner dashboard and website',
+                                    url: 'https://github.com/iSeFz/ELEVATE-Website',
+                                    icon: '🌐'
+                                },
+                                {
+                                    title: 'Backend Repository',
+                                    description: 'Node.js backend API and server implementation',
+                                    url: 'https://github.com/iSeFz/ELEVATE-Backend',
+                                    icon: '⚙️'
+                                }
+                            ]
+                        },
+                        {
+                            id: 'demonstrations',
+                            title: 'Live Demonstrations',
+                            icon: '🚀',
+                            links: [
+                                {
+                                    title: 'Mobile App Live Demo',
+                                    description: 'Experience the mobile app features and AI try-on',
+                                    url: 'https://github.com/shawkyebrahim2514/graduation-project/blob/main/docs/assets/demos/Mobile-Demo.mp4',
+                                    icon: '📲'
+                                },
+                                {
+                                    title: 'Brand Owner Dashboard Demo',
+                                    description: 'Explore the brand management and analytics platform',
+                                    url: 'https://github.com/shawkyebrahim2514/graduation-project/blob/main/docs/assets/demos/Website-Demo.mp4',
+                                    icon: '📊'
+                                }
+                            ]
+                        },
+                        {
+                            id: 'team',
+                            title: 'Team & Professional Network',
+                            icon: '👥',
+                            links: [
+                                {
+                                    title: 'Seif Yehia - LinkedIn',
+                                    description: 'Project lead and mobile frontend development specialist',
+                                    url: 'https://www.linkedin.com/in/seifyahia',
+                                    icon: '👨‍💼'
+                                },
+                                {
+                                    title: 'Shawky Ebrahim - LinkedIn',
+                                    description: 'Backend architect and AI integration expert',
+                                    url: 'https://www.linkedin.com/in/shawkyebrahim2514/',
+                                    icon: '👨‍💻'
+                                },
+                                {
+                                    title: 'Adham Khaled - LinkedIn',
+                                    description: 'Web frontend development specialist',
+                                    url: 'https://www.linkedin.com/in/adham-khaled-965a3321a/',
+                                    icon: '👨‍💻'
+                                },
+                                {
+                                    title: 'Belal Eid - LinkedIn',
+                                    description: 'Mobile frontend development specialist',
+                                    url: 'https://linkedin.com/in/elevate-backend-dev',
+                                    icon: '👨‍💻'
+                                },
+                                {
+                                    title: 'Nour Wael - LinkedIn',
+                                    description: 'Mobile development and data engineering specialist',
+                                    url: 'https://linkedin.com/in/elevate-ux-designer',
+                                    icon: '👩‍💻'
+                                },
+                                {
+                                    title: 'Nour Tarek - LinkedIn',
+                                    description: 'UX/UI designer and mobile frontend developer',
+                                    url: 'https://linkedin.com/in/elevate-ux-designer',
+                                    icon: '🎨'
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
         ]
     }
 };

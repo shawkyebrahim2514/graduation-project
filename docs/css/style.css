@@ -495,7 +495,80 @@ main.team-members-content {
     animation: spin 1s linear infinite;
 }
 
-/* Responsive adjustments */
+/* External Links Section Styles */
+.external-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.external-link-card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.external-link-card:hover {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.external-link-card:hover .link-title {
+    color: var(--primary-dark);
+}
+
+.external-link-card .link-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.external-link-card .link-title {
+    font-weight: 600;
+    color: var(--primary);
+    transition: color 0.2s ease;
+    margin-bottom: 0.25rem;
+}
+
+.external-link-card .link-description {
+    font-size: 0.875rem;
+    color: #6b7280;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+.external-link-card .link-action {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--primary);
+}
+
+.external-link-card:hover .link-action svg {
+    transform: translateX(0.25rem);
+}
+
+.external-link-category-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.external-link-category-icon {
+    font-size: 1.5rem;
+}
+
 @media (max-width: 768px) {
     .project-documentation > div {
         padding: 1.5rem;
@@ -503,6 +576,15 @@ main.team-members-content {
 
     .project-documentation h2 {
         font-size: 1.5rem;
+    }
+
+    .external-links-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .external-link-card {
+        padding: 0.875rem;
     }
 }
 
