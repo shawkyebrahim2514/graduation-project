@@ -241,7 +241,7 @@ export const PROJECT_CONTENT = {
                                 {
                                     title: 'Mobile App Frontend',
                                     description: 'Flutter-based mobile application source code',
-                                    url: 'https://github.com/iSeFz/ELEVATE',
+                                    url: 'https://github.com/iSeFz/ELEVATE-Mobile',
                                     icon: '📱'
                                 },
                                 {
@@ -283,7 +283,7 @@ export const PROJECT_CONTENT = {
                             icon: '👥',
                             links: [
                                 {
-                                    title: 'Seif Yehia - LinkedIn',
+                                    title: 'Seif Yahia - LinkedIn',
                                     description: 'Project lead and mobile frontend development specialist',
                                     url: 'https://www.linkedin.com/in/seifyahia',
                                     icon: '👨‍💼'
