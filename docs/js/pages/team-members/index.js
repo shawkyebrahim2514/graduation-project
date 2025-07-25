@@ -8,6 +8,11 @@ import { AnimationUtils } from '../../utils/index.js';
 function createTeamMembersPage(mainSection) {
     mainSection.className = 'min-h-screen bg-gradient-to-br from-primary-light to-transparent py-8';
     mainSection.innerHTML = '';
+    // Set SVG pattern as repeating background
+    mainSection.style.backgroundImage = "url('./assets/background-pattern.svg')";
+    mainSection.style.backgroundRepeat = "repeat";
+    mainSection.style.backgroundSize = "auto";
+    mainSection.style.backgroundPosition = "center";
     
     // Create container with Tailwind classes
     const container = document.createElement('div');
