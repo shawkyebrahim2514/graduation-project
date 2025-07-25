@@ -28,7 +28,7 @@ function createTeamMembersPage(mainSection) {
     const teamPhotoSection = document.createElement('div');
     teamPhotoSection.className = 'flex justify-center mb-16';
     teamPhotoSection.innerHTML = `
-        <div class="relative group cursor-pointer">
+        <div class="relative group cursor-pointer max-w-[500px]">
             <div class="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-3xl blur opacity-30 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
             <div class="relative bg-card-bg border-2 border-primary rounded-3xl p-6 backdrop-blur-sm hover:shadow-2xl transition-all duration-500">
                 <img 

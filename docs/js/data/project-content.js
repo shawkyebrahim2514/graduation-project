@@ -241,19 +241,19 @@ export const PROJECT_CONTENT = {
                                 {
                                     title: 'Mobile App Frontend',
                                     description: 'Flutter-based mobile application source code',
-                                    url: 'https://github.com/iSeFz/ELEVATE-Mobile',
+                                    url: 'https://github.com/iSeFz/ELEVATE/tree/main/mobile',
                                     icon: '📱'
                                 },
                                 {
                                     title: 'Website Frontend (Brand Owners)',
                                     description: 'React-based brand owner dashboard and website',
-                                    url: 'https://github.com/iSeFz/ELEVATE-Website',
+                                    url: 'https://github.com/iSeFz/ELEVATE/tree/main/website',
                                     icon: '🌐'
                                 },
                                 {
                                     title: 'Backend Repository',
                                     description: 'Node.js backend API and server implementation',
-                                    url: 'https://github.com/iSeFz/ELEVATE-Backend',
+                                    url: 'https://github.com/iSeFz/ELEVATE/tree/main/backend',
                                     icon: '⚙️'
                                 }
                             ]
